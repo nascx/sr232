@@ -30,7 +30,7 @@ const ResultTests = ({ text, icon, colorIcon, icon2, colorIcon2, type }: ResultT
 
   const { id, name } = useContext(myContext)
 
-  const handleResultTestSend = (type: 'negative' | 'positive') => {
+  const handleResultTestSend = () => {
     axios.post(`${base_url_api}/send-results`, {
       registration: id,
       name: name,
@@ -43,6 +43,8 @@ const ResultTests = ({ text, icon, colorIcon, icon2, colorIcon2, type }: ResultT
         toast.error('Erro ao salvar resultado do seu teste!')
       })
   }
+
+  handleResultTestSend()
 
   const router = useRouter()
 
@@ -87,12 +89,9 @@ const ResultTests = ({ text, icon, colorIcon, icon2, colorIcon2, type }: ResultT
 
       </div>
       {
-        type !== 'await' && (
+        type === 'positive' && (
           <div className='flex justify-end ml-96 mt-2'>
             <Button className='mr-2' onClick={handleClickBackBtn}>Voltar</Button>
-            <Button onClick={() => {
-              handleResultTestSend(type)
-            }}>Salvar resultado</Button>
           </div>
         )
       }

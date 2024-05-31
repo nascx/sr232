@@ -13,7 +13,7 @@ export const searchForCollaboratorByRegistration = async (id: any ) => {
                     resolve({name: data[0].name}); // Return collaborator name
                 } else {
                     console.log('No collaborator found')
-                    resolve({message: 'No Collaborator found'}); // No collaborator found
+                    reject({message: 'No Collaborator found'}); // No collaborator found
                 }
             });
         });

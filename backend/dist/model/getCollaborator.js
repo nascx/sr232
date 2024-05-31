@@ -58,7 +58,7 @@ var searchForCollaboratorByRegistration = async (id) => {
           resolve({ name: data[0].name });
         } else {
           console.log("No collaborator found");
-          resolve({ message: "No Collaborator found" });
+          reject({ message: "No Collaborator found" });
         }
       });
     });
