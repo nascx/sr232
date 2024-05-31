@@ -23,12 +23,14 @@ const App = () => {
       params: {
         id: id
       }
-    }).then( async(response) => {
+    }).then(async (response) => {
       await setName(response.data.name)
       router.push(`${base_url_this}/await`)
     }).catch((error) => {
       console.log(error)
-    }) }
+    })
+  }
+  
   return (
     <div className="flex flex-col justify-center h-screen w-full items-center text-white">
       <div className="flex flex-col justify-center items-center bg-[#071013] h-96 rounded-xl">
@@ -36,12 +38,12 @@ const App = () => {
         <p className='text-sm mt-2'>Produção - Montagem automática</p>
         <p className='text-base mt-10 w-10/12'>Olá, para iniciar seu teste forneça o seu número de matricula.</p>
       </div>
-      <input type="text" placeholder='Digite aqui seu número de matricula' 
-      className='w-[400px] pl-2 border-2 h-[40px] mt-4 text-black rounded-lg'
-      onChange={handleIdChange}/>
+      <input type="text" placeholder='Digite aqui seu número de matricula'
+        className='w-[400px] pl-2 border-2 h-[40px] mt-4 text-black rounded-lg'
+        onChange={handleIdChange} />
       <button
-       className='bg-[#071013] rounded-lg h-[35px] w-[120px] text-center mt-2 ml-[250px] text-sm' 
-      onClick={handleSearchId}>Começar teste</button>
+        className='bg-[#071013] rounded-lg h-[35px] w-[120px] text-center mt-2 ml-[250px] text-sm'
+        onClick={handleSearchId}>Começar teste</button>
     </div>
   )
 }
