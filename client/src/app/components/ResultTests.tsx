@@ -44,7 +44,9 @@ const ResultTests = ({ text, icon, colorIcon, icon2, colorIcon2, type }: ResultT
       })
   }
 
-  handleResultTestSend()
+  if (type === 'positive') {
+    handleResultTestSend()
+  }
 
   const router = useRouter()
 
