@@ -8,10 +8,10 @@ import { myContext } from '../context/MyContext'
 const Negative = () => {
 
     const { name } = useContext(myContext)
-    
+
     return (
         <ResultTests
-            text={`${name}, Por favor refaça o teste ou procure o responsável para efetuar a troca do seu calçado.`}
+            text={`${name}, por favor refaça o teste ou procure o responsável para efetuar a troca do seu calçado.`}
             icon={faCircleXmark}
             colorIcon='#800E13'
             icon2={faTriangleExclamation}
