@@ -2,7 +2,7 @@
 
 import { SerialPort } from 'serialport';
 import { ReadlineParser } from '@serialport/parser-readline';
-import { Request, Response } from 'express'
+import { Request, response, Response } from 'express'
 
 const path: string = 'COM3';
 const baudRate: number = 9600; 
@@ -30,7 +30,7 @@ export const listenForData = async (req: Request, res: Response) => {
       // Handle incoming data from serial port
       for await (const data of parser) {
         arr.push(data);
-  
+        
         // Check if enough data has been received (13 items)
         if (arr.length > 13) {
           // Return the data as JSON response

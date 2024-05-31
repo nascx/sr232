@@ -8,13 +8,11 @@ import { useRouter } from 'next/navigation'
 
 const App = () => {
 
-  const [id, setId] = useState<string>('')
+  const { setName, setID, id } = useContext(myContext)
 
   const handleIdChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setId(e.target.value)
+    setID(e.target.value)
   }
-
-  const { setName } = useContext(myContext)
 
   const router = useRouter()
 
@@ -30,7 +28,7 @@ const App = () => {
       console.log(error)
     })
   }
-  
+
   return (
     <div className="flex flex-col justify-center h-screen w-full items-center text-white">
       <div className="flex flex-col justify-center items-center bg-[#071013] h-96 rounded-xl">
