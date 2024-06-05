@@ -32,10 +32,21 @@ export const listenForData = async (req: Request, res: Response) => {
         arr.push(data);
         
         // Check if enough data has been received (13 items)
-        if (arr.length > 13) {
+        if (arr.includes('#RIGHT NG') || arr.includes('#RIGHT NG')) {
+
+          const right = arr.find((r) => {
+            if (r === '#RIGHT NG' || '#RIGHT OK') {
+              return r
+            }
+          })
+
+          const left = arr.find((r) => {
+            if (r === '#LEFT NG' || '#LEFT OK') {
+              return r
+            }
+          })
           // Return the data as JSON response
-          res.status(200).json({ left: arr[8], right: arr[12] });
-          console.log(arr)
+          res.status(200).json({ left: left, right: right });
           return; // Exit the loop and end the request handling
         }
       }

@@ -91,7 +91,7 @@ const ResultTests = ({ text, icon, colorIcon, icon2, colorIcon2, type }: ResultT
 
       </div>
       {
-        type === 'positive' && (
+        type === 'positive' || type === 'negative' && (
           <div className='flex justify-end ml-96 mt-2'>
             <Button className='mr-2' onClick={handleClickBackBtn}>Voltar</Button>
           </div>
