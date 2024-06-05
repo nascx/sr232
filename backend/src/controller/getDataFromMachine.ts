@@ -32,7 +32,7 @@ export const listenForData = async (req: Request, res: Response) => {
         arr.push(data);
         
         // Check if enough data has been received (13 items)
-        if (arr.includes('#RIGHT NG') || arr.includes('#RIGHT NG')) {
+        if (arr.includes('#RIGHT NG') || arr.includes('#RIGHT OK')) {
 
           const right = arr.find((r) => {
             if (r === '#RIGHT NG' || r === '#RIGHT OK') {
