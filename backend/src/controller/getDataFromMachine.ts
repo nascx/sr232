@@ -35,13 +35,13 @@ export const listenForData = async (req: Request, res: Response) => {
         if (arr.includes('#RIGHT NG') || arr.includes('#RIGHT NG')) {
 
           const right = arr.find((r) => {
-            if (r === '#RIGHT NG' || '#RIGHT OK') {
+            if (r === '#RIGHT NG' || r === '#RIGHT OK') {
               return r
             }
           })
 
           const left = arr.find((r) => {
-            if (r === '#LEFT NG' || '#LEFT OK') {
+            if (r === '#LEFT NG' || r === '#LEFT OK') {
               return r
             }
           })
