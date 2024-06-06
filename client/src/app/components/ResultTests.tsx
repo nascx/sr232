@@ -44,7 +44,7 @@ const ResultTests = ({ text, icon, colorIcon, icon2, colorIcon2, type }: ResultT
       })
   }
 
-  if (type === 'positive') {
+  if (type === 'positive' || type === 'negative') {
     handleResultTestSend()
   }
 
