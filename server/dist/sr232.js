@@ -146,7 +146,7 @@ var getCollaboratorName = async (req, res) => {
 // src/controller/getDataFromMachine.ts
 var import_serialport = require("serialport");
 var import_parser_readline = __toESM(require_dist2());
-var path = "COM3";
+var path = "COM4";
 var baudRate = 9600;
 var port = new import_serialport.SerialPort({ path, baudRate });
 var listenForData = async (req, res) => {
@@ -163,9 +163,18 @@ var listenForData = async (req, res) => {
     const arr = [];
     for await (const data of parser) {
       arr.push(data);
-      if (arr.length > 13) {
-        res.status(200).json({ left: arr[8], right: arr[12] });
-        console.log(arr);
+      if (arr.includes("#RIGHT NG") || arr.includes("#RIGHT OK")) {
+        const right = arr.find((r) => {
+          if (r === "#RIGHT NG" || r === "#RIGHT OK") {
+            return r;
+          }
+        });
+        const left = arr.find((r) => {
+          if (r === "#LEFT NG" || r === "#LEFT OK") {
+            return r;
+          }
+        });
+        res.status(200).json({ left, right });
         return;
       }
     }
