@@ -6,7 +6,7 @@
   "scripts": {
     "test": "tsx --watch src/serialPortConnection.ts",
     "q": "tsx --watch src/model/sendResultTestsToDB.ts",
-    "start": "nodemon dist/sr232.js",
+    "start": "node dist/sr232.js",
     "build": "tsup ./src"
   },
   "keywords": [],
