@@ -37,7 +37,10 @@ const ResultTests = ({ text, icon, colorIcon, icon2, colorIcon2, type }: ResultT
       result: type
     }).then((res) => {
       toast.success('O resultado do seu teste foi salvo!')
-      router.push(`${base_url_this}`)
+      setTimeout(() => { 
+        router.push(`${base_url_this}`)
+      }, 3000)
+      
     })
       .catch((err) => {
         console.log(err)

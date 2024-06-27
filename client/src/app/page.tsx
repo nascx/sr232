@@ -1,6 +1,6 @@
 'use client'
 
-import React, { ChangeEvent, useContext, useState, useEffect } from 'react'
+import React, { ChangeEvent, useContext, useState, useEffect, KeyboardEvent } from 'react'
 import axios from 'axios'
 import { base_url_api, base_url_this } from '@/url_base'
 import { myContext } from './context/MyContext'
@@ -29,7 +29,7 @@ const App = () => {
     })
   }
 
-  const handleEnterKey = (e: KeyboardEvent) => {
+  const handleEnterKey = (e: any) => {
     if (e.key === 'Enter') {
       handleSearchId()
     }
