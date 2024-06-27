@@ -27,7 +27,7 @@ type ResultTestsProps = {
 }
 
 const ResultTests = ({ text, icon, colorIcon, icon2, colorIcon2, type }: ResultTestsProps) => {
-
+  
   const { id, name } = useContext(myContext)
 
   const handleResultTestSend = () => {
@@ -37,6 +37,7 @@ const ResultTests = ({ text, icon, colorIcon, icon2, colorIcon2, type }: ResultT
       result: type
     }).then((res) => {
       toast.success('O resultado do seu teste foi salvo!')
+      router.push(`${base_url_this}`)
     })
       .catch((err) => {
         console.log(err)

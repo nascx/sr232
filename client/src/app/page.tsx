@@ -1,6 +1,6 @@
 'use client'
 
-import React, { ChangeEvent, useContext, useState } from 'react'
+import React, { ChangeEvent, useContext, useState, useEffect } from 'react'
 import axios from 'axios'
 import { base_url_api, base_url_this } from '@/url_base'
 import { myContext } from './context/MyContext'
@@ -28,6 +28,22 @@ const App = () => {
       console.log(error)
     })
   }
+
+  const handleEnterKey = (e: KeyboardEvent) => {
+    if (e.key === 'Enter') {
+      handleSearchId()
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener('keydown', handleEnterKey)
+
+    return () => {
+      window.removeEventListener('keydown', handleEnterKey)
+    }
+  }, [handleEnterKey])
+
+
 
   return (
     <div className="flex flex-col justify-center h-screen w-full items-center text-white">
