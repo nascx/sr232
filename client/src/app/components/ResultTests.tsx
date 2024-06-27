@@ -30,7 +30,7 @@ const ResultTests = ({ text, icon, colorIcon, icon2, colorIcon2, type }: ResultT
   
   const { id, name } = useContext(myContext)
 
-  const handleResultTestSend = () => {
+  const handleResultTestSend = (type: string) => {
     axios.post(`${base_url_api}/send-results`, {
       registration: id,
       name: name,
@@ -49,7 +49,7 @@ const ResultTests = ({ text, icon, colorIcon, icon2, colorIcon2, type }: ResultT
   }
 
   if (type === 'positive' || type === 'negative') {
-    handleResultTestSend()
+    handleResultTestSend(type)
   }
 
   const router = useRouter()
