@@ -1,7 +1,9 @@
 import e, { Request, Response } from 'express'
 import { sendResultsTestsToDB } from '../model/sendResultTestsToDB'
 
-const sendResults = (req: Request, res: Response) => {
+const sendResults = async (req: Request, res: Response) => {
+
+   console.log('função chamada')
 
    const { registration, name, result } = req.body
 
@@ -10,7 +12,7 @@ const sendResults = (req: Request, res: Response) => {
    const date = new Date().toLocaleDateString('pt-br')
 
    try {
-      const response = sendResultsTestsToDB(registration, name, date, result)
+      const response = await sendResultsTestsToDB(registration, name, date, result)
       res.status(200).json(response)
       console.log(response)
    } catch (error) {

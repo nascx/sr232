@@ -4,7 +4,7 @@
   "description": "",
   "main": "sr232.cjs",
   "scripts": {
-    "test": "tsx --watch src/serialPortConnection.ts",
+    "test": "tsx --watch src/sr232.ts",
     "q": "tsx --watch src/model/sendResultTestsToDB.ts",
     "start": "node dist/sr232.js",
     "build": "tsup ./src"
